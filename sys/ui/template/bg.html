@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+                <div class="input-group box-align-left-top">
+                    <span class="input-group-addon">Hi {{fullname}}，你想吃什么</span>
+                    <input type="text" class="form-control" ng-model="order">
+                </div>
+        </div>
+        <div class="col-sm-2">
+                <div class="input-group box-align-left-top">
+                    <button type="button" class="btn btn-primary" ng-click="post()">提交</button>
+                </div>
+        </div>
+        <div class="col-sm-2">
+                <div class="input-group box-align-left-top">
+                    <button type="button" class="btn btn-warning btn-align-left" ng-click="clear()" ng-if="userName=='gzsushixuan'">clear</button>
+                </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-6">
+        <table class="table table-bordered table-striped table-hover">
+            <tr ng-repeat="item in data.items track by $index">
+                <td>{{item.fullname}}</td>
+                <td>{{item.order}}</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</div>

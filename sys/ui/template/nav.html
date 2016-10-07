@@ -1,0 +1,15 @@
+<div class='box-align-left'>
+    <ul class="nav nav-tabs">
+        <li ui-sref-active="active" ng-repeat="nav in navs">
+            <a ui-sref="{{nav.state}}">{{nav.title}}</a>
+        </li>
+        <li class="dropdown" style="float:right;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{userName}}<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">退出</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

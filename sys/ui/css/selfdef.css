@@ -1,0 +1,13 @@
+.box-align-left-top {
+    padding-top     : 20px;
+    padding-left    : 20px;
+}
+
+.box-align-left {
+    padding-left    : 20px;
+}
+
+.btn-align-left {
+    margin-right    : 5px;
+    margin-left     : 5px;
+}

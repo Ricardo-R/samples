@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ui router demo</title>
+        <style type="text/css">
+            .mar{ margin-top:15px}
+            .selected{background-color: #efefef; width:120px; } 
+            .detail{width: 300px;margin: 30px;border-top: 1px solid #efefef;}
+        </style>
+        <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="libs/js/jquery.js"></script>
+        <script src="libs/bootstrap/js/bootstrap.js"></script>
+        <script src="libs/js/angular.js"></script>
+        <script src="libs/js/angular-ui-router.js"></script>        
+        <script src="libs/js/angular-resource.js"></script>        
+        <!-- <script src="js/controllers.js"></script> -->        
+        <!-- <script src="js/subcontrollers.js"></script> -->        
+        <!-- <script src="js/services.js"></script> -->        
+        <!-- <script src="js/app.js"></script> -->        
+        <!-- IE8-HTML5: https://code.google.com/p/html5shiv/ -->
+        <!-- <script src="js/libs/html5shiv.js"></script> -->
+ 
+    </head>
+    <body ng-controller="mainCtrl">
+ 
+        <!-- Angular UI Router Directive for template insertion -->
+        <div class="container mar">
+            <div class="row">
+                <div class="row">
+                    <h1>{{ title }}</h1>
+                </div>
+            
+                <div class="row">
+                    <div class="col-sm-3" ui-view="header"></div> 
+                    <div class="col-sm-9">
+                        <ol class="breadcrumb">
+                            <li ng-repeat="bread in breads">
+                                <a ui-sref="{{bread.url}}">{{bread.path}}</a>
+                            </li>
+                        </ol>
+                        <div ui-view="content"></div> 
+                    </div>
+               </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="libs/js/require.js" data-main="main"></script>
+
+</html>
