@@ -1,13 +1,11 @@
 var app = angular.module('app', ['ui.router', 'ipCookie']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/s');
-    $urlRouterProvider.when('/s', '/s/bg');
+    $urlRouterProvider.otherwise('/bg');
 
     var states = [
         {
             name: 'home',
-            url: '/s',
             views:{
                 '@':{
                     templateUrl: 'template/main.html',
@@ -78,7 +76,7 @@ app.controller('bgCtrl',
     var config = {};
     config.method = 'GET';
     config.headers = {"Content-Type":"application/json;charset=UTF-8"};
-    config.url = '/proxy/sys/s/';
+    config.url = '/proxy/sys/bg/';
     config.data = {"items":[], "trigger":"off"};
 
     var rps = function(config){
@@ -114,6 +112,7 @@ app.controller('bgCtrl',
 app.controller('voteCtrl',
 ['$scope', '$state',
   function($scope, $state){
-    $scope.bg = 'TEST_BG_STR';
+    $scope.bg = [1,2,3,4];
+    $scope.lens = $scope.bg.length
 }]);
 //angular.bootstrap(document, ['app']);
