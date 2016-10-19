@@ -2,7 +2,7 @@
 # coding=UTF-8
 
 from flask import Flask
-from flask import request
+from flask import request, current_app
 from flask import jsonify, make_response
 import json
 
@@ -10,7 +10,8 @@ app = Flask(__name__)
 
 @app.route('/api/v1/hw/', methods=['GET'])
 def hw():
-    return 'Hello World'
+    rs = {'app':dir(current_app)}
+    return make_response(jsonify(rs))
 
 @app.route('/api/v1/test/', methods=['GET', 'POST'])
 def test():
