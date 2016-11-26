@@ -1,24 +1,28 @@
-<div>
-<p>
-<center>
-    BG
-    {{bg}}
-</center>
-<center>
-    BG
-    {{bg}}
-</center>
-<center>
-    BG
-    {{bg}}
-</center>
-<center>
-    BG
-    {{bg}}
-</center>
-<center>
-    BG
-    {{bg}}
-</center>
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <form>
+            xxx <input type="radio" name="choice">
+            xxx <input type="radio" name="choice">
+        <form>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>prio</th>
+                    <th>prio</th>
+                    <th>prio</th>
+                    <th>prio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data.items track by $index">
+                    <td>{{item.fullname}}</td>
+                    <td>{{item.order}}</td>
+                </tr>
+            <tbody>
+        </table>
+        </div>
+    </div>
 </div>
