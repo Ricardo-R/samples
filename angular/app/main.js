@@ -1,14 +1,54 @@
+(function() {
+var BASE = '/js/app';
+var LIB = '/js/libs/js';
 require.config({
-    baseUrl: 'js',
-    paths:{
-        'controllers':'controllers',
-        'services': 'services',
-        'subcontrollers':'subcontrollers'
+    paths   : {
+        'jquery'    : LIB+'/jquery',
+        'angular'   : LIB+'/angular',
+        'uiRouter'  : LIB+'/angular-ui-router',
+        'ngResource'  : LIB+'/angular-resource',
+        'checklistModel'   : LIB+'/checklist-model',
+        'controllers'   : BASE+'/controllers',
+        'subcontrollers': BASE+'/subcontrollers',
+        'services'      : BASE+'/services',
     },
+    shim    : {
+        'jquery'    : {
+            'exports'   : '$'
+        }, 
+        'angular'   : {
+            'deps'      : ['jquery'],
+            'exports'   : 'angular'
+        },
+        'uiRouter' : {
+            'deps'      : ['angular'],
+            'exports'   : 'ui.router'
+        },
+        'ngResource'  : {
+            'deps'      : ['angular'],
+            'exports'   : 'ngResource'
+        },
+        'checklistModel': {
+            'deps'      : ['angular'],
+            'exports'   : 'checklistModel'
+        },
+        'controllers'   : {
+            'deps'      : ['angular', 'ngResource', 'checklistModel'],
+            'exports'   : 'controllers'
+        },
+        'subcontrollers'   : {
+            'deps'      : ['angular', 'ngResource', 'checklistModel'],
+            'exports'   : 'subcontrollers'
+        },
+        'services'   : {
+            'deps'      : ['angular', 'ngResource', 'checklistModel'],
+            'exports'   : 'services'
+        },
+    }
 });
 
-require(['controllers', 'subcontrollers', 'services'], 
-    function (controllers, subcontrollers, services){
+define(['uiRouter', 'controllers', 'subcontrollers', 'services'], 
+    function (uiRouter, controllers, subcontrollers, services){
 
 var app = angular.module('demo', [
         'ui.router', 
@@ -118,3 +158,4 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 angular.bootstrap(document, [app.name]);
 
 });
+})();
