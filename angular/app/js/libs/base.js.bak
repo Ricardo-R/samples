@@ -1,0 +1,39 @@
+(function() {
+
+var LIB = '/js/libs/js'
+require.config = {
+    paths   : {
+        'jquery'    : LIB+'/jquery',
+        'angular'   : LIB+'/angular',
+        'angular-ui-router' : LIB+'/angular-ui-router',
+        'angular-resource'  : LIB+'/angular-resource',
+        'checklist-model'   : LIB+'/checklist-model'
+    },
+    shim    : {
+        'jquery'    : {
+            'exports'   : '$'
+        }, 
+        'angular'   : {
+            'deps'      : ['jquery'],
+            'exports'   : 'angular'
+        },
+        'angular-ui-router' : {
+            'deps'      : ['angular'],
+            'exports'   : 'ui.router'
+        },
+        'angular-resource'  : {
+            'deps'      : ['angular'],
+            'exports'   : '$resource'
+        },
+        'checklist-model': {
+            'deps'      : ['angular'],
+            'exports'   : 'checklist-model'
+        }
+    },
+}
+
+define(function() {
+    return 'Load base libs ok'
+});
+
+})();
