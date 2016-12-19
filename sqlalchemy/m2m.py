@@ -19,6 +19,13 @@ class User(Base, RestModel):
     name    = Column(String(64), nullable=False, unique=True)
     name_zh = Column(String(128), nullable=True)
     projects= association_proxy('user_projects', 'project')
+    '''
+    如果要访问到role的信息，需要访问user_projects。
+    使用代理的好处是，屏蔽了中间表的细节，操作可以方便等同于使用Table,
+    但是，role信息是访问必须的，所以我们如果要访问role信息就不应该屏蔽
+    中间表。使用了代理之后，projects可以方便访问到对应的所有项目，
+    user_projects可以访问到对应的中间对象。
+    '''
 
     def __init__(self, name, name_zh=''):
         self.name   = name
